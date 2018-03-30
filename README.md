@@ -20,8 +20,10 @@ This program sets up a website that needs credentials to log in, and provides 10
 
 Notes:
 - To edit the password, please use
-`>>> from werkzeug.security import generate_password_hash, check_password_hash
->>> generate_password_hash("your_desired_password")`
+```
+>>> from werkzeug.security import generate_password_hash, check_password_hash
+>>> generate_password_hash("your_desired_password")
+```
 and place it in the `users` dict.
 
 License: CC BY-NC-SA
