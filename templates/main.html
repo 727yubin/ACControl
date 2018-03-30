@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+   <style>
+      .btn-default{color:#333;background-color:#ff0f0f}
+      .btn-primary{color:#fff;background-color:#3cef2f}
+      .btn-lg{padding:10px 16px;font-size:18px;line-height:1.3333333;border-radius:6px;}
+      .btn{margin-bottom:0;font-weight:400;text-align:center;white-space:nowrap;vertical-align:middle;touch-action:manipulation;cursor:pointer;border:1px solid transparent;}
+      h2{display:inline-block;}
+   </style>
+   <title>AC Control</title>
+</head>
+
+<body>
+   <h1>RPi Web Server</h1>
+   {% for pin,value in pins|dictsort %}
+   <h2>{{ pins[pin].name }}
+   {% if pins[pin].state == true %}
+      is currently <strong>on</strong></h2>
+      <a href="/app/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">Turn off</a><br>
+   {% else %}
+      is currently <strong>off</strong></h2>
+      <a href="/app/{{pin}}/on" class="btn btn-block btn-lg btn-primary" role="button">Turn on</a><br>
+   {% endif %}
+   {% endfor %}
+</body>
+</html>
