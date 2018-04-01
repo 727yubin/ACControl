@@ -24,7 +24,7 @@ if os.path.exists("users.csv") != True:
 with open("users.csv", 'r') as f:
 	usersReader = csv.reader(f)
 	for row in usersReader:
-		if row == []:
+		if row == [] or row[0][0] == ";":
 			pass
 		else:
 			users[row[0]] = row[1]
