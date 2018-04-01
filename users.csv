@@ -1,1 +1,8 @@
+;To add new credentials, save it in the following format:
+;username,hashed_password
+;For generating hashed_password, please check README.
+;The following is the credentials for username user, password user.
+
+;By the way, comments can be added in this file by adding a semicolon at the beginning. The program will ignore lines that start with a ;.
+
 user,'pbkdf2:sha256:50000$a7PH6wGW$af67ca4c0d534271a22a4f7040bf206920762f346ae1f76634208311eb2e24d5'
