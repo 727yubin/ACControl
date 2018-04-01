@@ -19,11 +19,12 @@ This program sets up a website that needs credentials to log in, and provides 10
 5. Control away!
 
 Notes:
-- To edit the password, please use
+To add credentials, place the following in the `users.csv` file:
+`username,hashed_password` with a new account-password pair on every new line.
+Generate the hashed password in Python 3 by executing the following:
 ```
 >>> from werkzeug.security import generate_password_hash, check_password_hash
 >>> generate_password_hash("your_desired_password")
 ```
-and place it in the `users` dict.
 
 License: CC BY-NC-SA
