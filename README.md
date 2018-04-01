@@ -13,7 +13,7 @@ This program sets up a website that needs credentials to log in, and provides 10
 
 # Execution
 1. Connect ACs (or LEDs to test) to GPIO pins in the program. This program uses Broadcom numbering.
-2. Make sure `app.py` and `templates/` are in the same folder.
+2. Make sure `app.py`, `users.csv` and `templates/` are in the same folder.
 3. `cd` into the directory, then run `sudo python3 app.py`
 4. Open a web browser and type in the IP address of the Raspberry Pi. Log in using credentials (defaults: username `user` password `user`)
 5. Control away!
