@@ -6,7 +6,7 @@ The principal of my school had an idea to control ACs over a network via a Raspb
 This program sets up a website that needs credentials to log in, and provides 10 buttons to control 10 GPIO pins. More can be added to the dictionary of pins.
 
 # Dependencies
-- A Raspberry Pi running Raspbian
+- A Raspberry Pi running Raspbian(similar distros like Ubuntu should work as well)
 - Python 3
 - Flask (`sudo pip3 install Flask`)
 - A network connection
@@ -14,12 +14,14 @@ This program sets up a website that needs credentials to log in, and provides 10
 # Execution
 1. Connect ACs (or LEDs to test) to GPIO pins in the program. This program uses Broadcom numbering.
 2. Make sure `app.py` and `templates/` are in the same folder.
-3. Run `sudo python3 app.py`
-4. Log in using credentials (defaults: username `user` password `user`)
+3. `cd` into the directory, then run `sudo python3 app.py`
+4. Open a web browser and type in the IP address of the Raspberry Pi. Log in using credentials (defaults: username `user` password `user`)
 5. Control away!
 
 Notes:
-To add credentials, place the following in the `users.csv` file:
+- Logs are in output.txt.
+
+- To add credentials, place the following in the `users.csv` file:
 `username,hashed_password` with a new account-password pair on every new line.
 Generate the hashed password in Python 3 by executing the following:
 ```
@@ -27,4 +29,4 @@ Generate the hashed password in Python 3 by executing the following:
 >>> generate_password_hash("your_desired_password")
 ```
 
-License: CC BY-NC-SA
+**License: CC BY-NC-SA**
