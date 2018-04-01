@@ -9,14 +9,27 @@ import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
+import logging, csv, os, sys
 
 auth = HTTPBasicAuth()
 
 app = Flask(__name__)
 
-users = {
-	"user" : generate_password_hash('user') # For added security, run this beforehand, and put the resulting string in place of generate_password_hash()
-}
+users = {}
+
+if os.path.exists("users.csv") != True:
+	print("users.csv file not found. ")
+	sys.exit()
+
+with open("users.csv", 'r') as f:
+	usersReader = csv.reader(f)
+	for row in usersReader:
+		if row == []:
+			pass
+		else:
+			users[row[0]] = row[1]
+	f.close
+
 
 GPIO.setmode(GPIO.BCM)
 
@@ -88,4 +101,7 @@ def action(changePin, action):
 	return render_template('main.html', **templateData)
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=80)
+	logger = logging.getLogger('werkzeug')
+	handler = logging.FileHandler('output.txt')
+	logger.addHandler(handler)
+	app.run(host='0.0.0.0', port=80, debug=True)
