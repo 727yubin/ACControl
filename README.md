@@ -8,7 +8,7 @@ This program sets up a website that needs credentials to log in, and provides 10
 # Dependencies
 - A Raspberry Pi running Raspbian(similar distros like Ubuntu should work as well)
 - Python 3
-- Flask (`sudo pip3 install Flask`)
+- Flask (`sudo pip3 install Flask` and `sudo pip3 install flask-httpauth`)
 - A network connection
 
 # Execution
